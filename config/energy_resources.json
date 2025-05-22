@@ -1,0 +1,18 @@
+{
+  "gasfired": {
+    "fuel": "gas(euro/MWh)",
+    "co2_emission_per_mwh": 0.3,
+    "is_variable": false
+  },
+  "turbojet": {
+    "fuel": "kerosine(euro/MWh)",
+    "co2_emission_per_mwh": 0.3,
+    "is_variable": false
+  },
+  "windturbine": {
+    "fuel": null,
+    "co2_emission_per_mwh": 0.0,
+    "is_variable": true,
+    "availability_key": "wind(%)"
+  }
+}
