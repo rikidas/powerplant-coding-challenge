@@ -75,6 +75,39 @@ docker run -p 8888:8888 production-plan-api
 
 ---
 
+
+## ⚙️ Customizing Energy Resource Configuration
+
+The production logic reads powerplant characteristics from the file:
+
+```
+config/energy_resources.json
+```
+
+Default configuration:
+
+```json
+{
+  "gasfired": {
+    "fuel": "gas(euro/MWh)",
+    "co2_emission_per_mwh": 0.3,
+    "is_variable": false
+  },
+  "turbojet": {
+    "fuel": "kerosine(euro/MWh)",
+    "co2_emission_per_mwh": 0.3,
+    "is_variable": false
+  },
+  "windturbine": {
+    "fuel": null,
+    "co2_emission_per_mwh": 0.0,
+    "is_variable": true,
+    "availability_key": "wind(%)"
+  }
+}
+```
+
+You can change fuel costs, CO₂ emissions, or availability logic as needed. If you want to add a new type of powerplant (e.g., solar), you can easily do so by editing this configuration file—**no need to modify the core code**.
 ## 📂 Project structure
 
 ```
