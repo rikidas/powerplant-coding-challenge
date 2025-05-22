@@ -1,75 +1,72 @@
-
 # ⚡ Power Plant Production Plan API
 
-Este proyecto es una API desarrollada con **FastAPI** que calcula un plan óptimo de producción eléctrica para un conjunto de plantas energéticas dadas unas condiciones de carga y combustibles.
+This project is an API built with **FastAPI** that calculates an optimal electric production plan for a set of power plants given load and fuel conditions.
 
 ---
 
-## 🚀 Cómo levantar la API
+## 🚀 How to run the API
 
-### 📦 Requisitos previos
+> **Important:** You must be in the project root directory to run these commands.
+
+### 📦 Prerequisites
 
 - Python 3.11+
 - `pip`
-- (Opcional) Crear y activar un entorno virtual:
+- (Optional) Create and activate a virtual environment:
 
 ```bash
 python -m venv .venv
-source .venv\Scripts\activate
+.venv\Scripts\activate  # Windows
+# or
+source .venv/bin/activate  # Linux/MacOS
 ```
 
-### 📥 Instalación de dependencias
+### 📥 Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### ▶️ Ejecutar la API localmente
+### ▶️ Run the API locally
 
 ```bash
 uvicorn api.api:app --reload --port 8888
 ```
 
-Esto levantará la API en `http://localhost:8888`.
+This will start the API at `http://localhost:8888`.
 
-Puedes probarla accediendo a la documentación interactiva de Swagger en:
+You can test the API with curl: 
+
+```bash
+curl -X POST http://localhost:8888/productionplan -H "Content-Type: application/json" -d "@example_payloads/payload2.json"
+```
+
+Or access the interactive Swagger docs at:
 
 ```
 http://localhost:8888/docs
 ```
 
-O bien con curl
-
-```
-curl -X POST http://localhost:8000/productionplan -H "Content-Type: application/json" -d "@example_payloads/payload2.json"
-```
-
-
 ---
 
-## 🧪 Ejecutar los tests
+## 🧪 Running tests
 
-Este proyecto utiliza `pytest`. Para lanzar los tests:
+This project uses `pytest`. To run tests:
 
 ```bash
 pytest tests/
 ```
 
-Asegúrate de tener instaladas las dependencias de desarrollo en `requirements.txt` o ejecuta:
-
-```bash
-pip install pytest
-```
 
 ---
 
-## 🐳 Despliegue con Docker
+## 🐳 Deployment with Docker
 
 ### 📄 Dockerfile
 
-```
+A Dockerfile is included to build a container image for this API.
 
-### 🚀 Construir y ejecutar
+### 🚀 Build and run with Docker
 
 ```bash
 docker build -t production-plan-api .
@@ -78,7 +75,7 @@ docker run -p 8888:8888 production-plan-api
 
 ---
 
-## 📂 Estructura del proyecto
+## 📂 Project structure
 
 ```
 Prueba_Engie/
@@ -96,5 +93,3 @@ Prueba_Engie/
 ├── Dockerfile
 └── README.md
 ```
-
-
